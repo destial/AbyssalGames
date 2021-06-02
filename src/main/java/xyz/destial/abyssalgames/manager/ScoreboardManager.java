@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.UUID;
 
 public class ScoreboardManager {
-    private final FileConfiguration config;
     private final List<String> lobbyScoreboardRaw;
     private final List<String> gameScoreboardRaw;
     private final String title;
@@ -23,7 +22,6 @@ public class ScoreboardManager {
     private final HashMap<UUID, Integer> taskIDs;
 
     public ScoreboardManager(FileConfiguration config) {
-        this.config = config;
         lobbyScoreboardRaw = getLines(config.getStringList("lobby"));
         gameScoreboardRaw = getLines(config.getStringList("game"));
         title = config.getString("title", "Abyssal Games");
@@ -65,14 +63,6 @@ public class ScoreboardManager {
         return title;
     }
 
-    public FileConfiguration getConfig() {
-        return config;
-    }
-
-    public org.bukkit.scoreboard.ScoreboardManager getBukkitScoreboardManager() {
-        return bukkitScoreboardManager;
-    }
-
     private List<String> getLines(List<String> raw) {
         List<String> newList = new ArrayList<>();
         for (int i = raw.size() - 1; i >= 0; i--){
@@ -83,10 +73,6 @@ public class ScoreboardManager {
             newList.add(MessageManager.translate(raw.get(i)));
         }
         return newList;
-    }
-
-    public HashMap<UUID, Integer> getTaskIDs() {
-        return taskIDs;
     }
 
     public static final String[] SCOREBOARD_LINES = new String[] {

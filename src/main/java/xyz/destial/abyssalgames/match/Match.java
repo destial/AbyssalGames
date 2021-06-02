@@ -41,10 +41,10 @@ public class Match {
         }
     }
 
-    public boolean removePlayer(MatchPlayer player) {
+    public void removePlayer(MatchPlayer player) {
         player.getBasePlayer().getPlayer().setGameMode(GameMode.ADVENTURE);
         player.getBasePlayer().setOnline(false);
-        return players.remove(player.getBasePlayer().getPlayer().getName()) != null;
+        players.remove(player.getBasePlayer().getPlayer().getName());
     }
 
     public void removeSpectator(Spectator spectator) {
@@ -91,10 +91,6 @@ public class Match {
 
     public void setState(MatchState state) {
         this.state = state;
-    }
-
-    public int getDeaths() {
-        return deaths;
     }
 
     public void addDeath() {

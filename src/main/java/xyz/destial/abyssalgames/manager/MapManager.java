@@ -54,11 +54,6 @@ public class MapManager {
         mapNames.add(map.getName());
     }
 
-    public void removeMap(Map map) {
-        maps.remove(map.getName());
-        mapNames.remove(map.getName());
-    }
-
     public java.util.Map<String, Map> getMaps() {
         return maps;
     }
@@ -67,10 +62,9 @@ public class MapManager {
         return maps.get(mapName);
     }
 
-    public Map loadMap(String name) {
+    public void loadMap(String name) {
         Map map = new Map(null, name);
         addMap(map);
-        return map;
     }
 
     public void loadMapNames() {
@@ -98,18 +92,6 @@ public class MapManager {
         return map.getWorld();
     }
 
-    public void backupMap(Map map) {
-        if (map.getWorld() == null) return;
-        try {
-            File worldFolder = new File(map.getName() + File.separator);
-            File mapFile = new File(dataFolder + File.separator + map.getName());
-            mapFile.mkdir();
-            FileUtils.copyDirectory(worldFolder, mapFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void unloadMap(Map map) {
         if (map != null && map.getWorld() != null) {
             File worldFile = new File(map.getName() + File.separator);
@@ -125,14 +107,6 @@ public class MapManager {
 
     public File getDataFolder() {
         return dataFolder;
-    }
-
-    public FileConfiguration getMapsConfig() {
-        return mapsConfig;
-    }
-
-    public ArrayList<String> getMapNames() {
-        return mapNames;
     }
 
     public void save() {

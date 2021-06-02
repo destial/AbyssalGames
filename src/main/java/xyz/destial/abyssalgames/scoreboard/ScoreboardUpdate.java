@@ -20,7 +20,7 @@ public class ScoreboardUpdate implements Runnable {
     private final xyz.destial.abyssalgames.manager.ScoreboardManager scoreboardManager;
     private MatchState matchState;
     private Objective objective;
-    private Scoreboard scoreboard;
+    private final Scoreboard scoreboard;
     public ScoreboardUpdate(BasePlayer player) {
         this.player = player;
         matchManager = AbyssalGames.getPlugin().getMatchManager();

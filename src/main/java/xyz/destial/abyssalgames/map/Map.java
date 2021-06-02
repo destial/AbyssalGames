@@ -1,11 +1,7 @@
 package xyz.destial.abyssalgames.map;
 
-import org.bukkit.Chunk;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.World;
-import org.bukkit.block.BlockState;
-import org.bukkit.block.Chest;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import xyz.destial.abyssalgames.AbyssalGames;
@@ -13,7 +9,6 @@ import xyz.destial.abyssalgames.AbyssalGames;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Map {
     private final ArrayList<Location> spawnPoints;

@@ -9,7 +9,6 @@ import xyz.destial.abyssalgames.map.Lobby;
 import xyz.destial.abyssalgames.utils.Hub;
 
 import java.io.File;
-import java.sql.Connection;
 
 public class ConfigManager {
     private final FileConfiguration config;

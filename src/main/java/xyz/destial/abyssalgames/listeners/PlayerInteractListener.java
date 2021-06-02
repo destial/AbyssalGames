@@ -87,10 +87,10 @@ public class PlayerInteractListener implements Listener {
                 victimMatch.getBasePlayer().getPlayer().setHealth(victimMatch.getBasePlayer().getPlayer().getMaxHealth());
                 if (victim.getKiller() != null) {
                     MatchPlayer killer = matchManager.getMatch().getPlayers().get(victim.getKiller().getName());
-                    matchManager.call(new MatchPlayerDeathEvent(matchManager.getMatch(), e, victimMatch, killer));
+                    matchManager.call(new MatchPlayerDeathEvent(matchManager.getMatch(), victimMatch, killer));
                     return;
                 }
-                matchManager.call(new MatchPlayerDeathEvent(matchManager.getMatch(), e, victimMatch, null));
+                matchManager.call(new MatchPlayerDeathEvent(matchManager.getMatch(), victimMatch, null));
             }
         }
     }

@@ -129,18 +129,6 @@ public class ChestManager {
         }
     }
 
-    public ArrayList<ItemStack> getTier1Content() {
-        return tier1Content;
-    }
-
-    public ArrayList<ItemStack> getTier2Content() {
-        return tier2Content;
-    }
-
-    public ArrayList<ItemStack> getTier3Content() {
-        return tier3Content;
-    }
-
     public ItemStack getRandomTier1Content() {
         Random random = new Random();
         return tier1Content.get(random.nextInt(tier1Content.size() - 1));

@@ -25,7 +25,6 @@ public final class AbyssalGames extends JavaPlugin {
     private static AbyssalGames plugin;
     private ConfigManager configManager;
     private MatchManager matchManager;
-    private CommandHandler commandHandler;
     private MapManager mapManager;
     private ChestManager chestManager;
     private ScoreboardManager scoreboardManager;
@@ -38,6 +37,7 @@ public final class AbyssalGames extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
+        reloadConfig();
 
         File mapsFolder = new File("maps/");
         File mapsConfig = new File(getDataFolder(), "maps.yml");
@@ -47,7 +47,6 @@ public final class AbyssalGames extends JavaPlugin {
         mapManager.loadMapNames();
 
         matchManager = new MatchManager();
-        reloadConfig();
         registerListeners();
     }
 
@@ -75,12 +74,20 @@ public final class AbyssalGames extends JavaPlugin {
     public void reloadConfig() {
         super.reloadConfig();
         saveDefaultConfig();
-        saveResource("messages.yml", false);
-        saveResource("contents.yml", false);
-        saveResource("maps.yml", false);
-        saveResource("scoreboard.yml", false);
+        if (!(new File(getDataFolder(), "messages.yml").exists())) {
+            saveResource("messages.yml", false);
+        }
+        if (!(new File(getDataFolder(), "contents.yml").exists())) {
+            saveResource("contents.yml", false);
+        }
+        if (!(new File(getDataFolder(), "maps.yml").exists())) {
+            saveResource("maps.yml", false);
+        }
+        if (!(new File(getDataFolder(), "scoreboard.yml").exists())) {
+            saveResource("scoreboard.yml", false);
+        }
         File messages = new File(getDataFolder(), "messages.yml");
-        new MessageManager(YamlConfiguration.loadConfiguration(messages), getDataFolder());
+        MessageManager.reload(YamlConfiguration.loadConfiguration(messages), getDataFolder());
 
         for (Player player : Bukkit.getOnlinePlayers()) {
             player.kickPlayer(MessageManager.KICK_RELOADING);
@@ -89,11 +96,9 @@ public final class AbyssalGames extends JavaPlugin {
         boolean startup = configManager == null;
         configManager = new ConfigManager(getConfig(), getDataFolder());
 
-        File contents = new File(getDataFolder(), "contents.yml");
-        chestManager = new ChestManager(YamlConfiguration.loadConfiguration(contents), getDataFolder());
+        chestManager = new ChestManager(YamlConfiguration.loadConfiguration(new File(getDataFolder(), "contents.yml")), getDataFolder());
 
-        File scoreboard = new File(getDataFolder(), "scoreboard.yml");
-        scoreboardManager = new ScoreboardManager(YamlConfiguration.loadConfiguration(scoreboard));
+        scoreboardManager = new ScoreboardManager(YamlConfiguration.loadConfiguration(new File(getDataFolder(), "scoreboard.yml")));
 
         database = new Database(getConfig());
 
@@ -103,7 +108,7 @@ public final class AbyssalGames extends JavaPlugin {
     }
 
     public void registerListeners() {
-        commandHandler = new CommandHandler();
+        CommandHandler.register();
         Bukkit.getServer().getPluginManager().registerEvents(new PlayerJoinListener(), getPlugin());
         Bukkit.getServer().getPluginManager().registerEvents(new PlayerInteractListener(), getPlugin());
         Bukkit.getServer().getPluginManager().registerEvents(new MatchListener(), getPlugin());
@@ -114,10 +119,6 @@ public final class AbyssalGames extends JavaPlugin {
 
     public ConfigManager getConfigManager() {
         return configManager;
-    }
-
-    public CommandHandler getCommandHandler() {
-        return commandHandler;
     }
 
     public MatchManager getMatchManager() {

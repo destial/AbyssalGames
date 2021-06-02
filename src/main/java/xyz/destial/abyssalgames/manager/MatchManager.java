@@ -207,20 +207,18 @@ public class MatchManager {
         return waitingPlayers;
     }
 
-    public MatchPlayer addPlayer(BasePlayer player, Location spawnPoint) {
+    public void addPlayer(BasePlayer player, Location spawnPoint) {
         MatchPlayer matchPlayer = new MatchPlayer(player, match, spawnPoint);
         match.addPlayer(matchPlayer);
-        return matchPlayer;
     }
 
-    public BasePlayer addWaitingPlayer(Player player) {
+    public void addWaitingPlayer(Player player) {
         player.setGameMode(GameMode.ADVENTURE);
         player.setHealth(20);
         player.setFoodLevel(20);
         player.getInventory().clear();
         BasePlayer basePlayer = addAllPlayer(player);
         waitingPlayers.add(basePlayer);
-        return basePlayer;
     }
 
     public HashMap<UUID, BasePlayer> getAllPlayers() {

@@ -171,7 +171,6 @@ public class ChestListener implements Listener {
             Tier2Chest tier2Chest = chestManager.getTier2Chests().get(chest.getLocation());
             if (tier2Chest != null) {
                 tier2Chest.playSound(false);
-                return;
             }
         }
     }

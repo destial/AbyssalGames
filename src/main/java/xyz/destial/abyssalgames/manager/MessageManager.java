@@ -7,6 +7,7 @@ import xyz.destial.abyssalgames.AbyssalGames;
 import java.io.File;
 
 public class MessageManager {
+    private static MessageManager instance;
     private static FileConfiguration messages;
     private static File dataFolder;
 
@@ -73,7 +74,10 @@ public class MessageManager {
     public MessageManager(FileConfiguration messages, File dataFolder) {
         MessageManager.messages = messages;
         MessageManager.dataFolder = dataFolder;
+        instance = this;
+    }
 
+    public static void load() {
         DEATH_MESSAGE = parse("death.with-killer");
         UNKNOWN_DEATH_MESSAGE = parse("death.unknown");
         KILLER_MESSAGE = parse("death.to-killer");
@@ -140,8 +144,15 @@ public class MessageManager {
         CANNOT_DO_THAT = parse("error.cannot-do-that");
     }
 
-    public static FileConfiguration getMessages() {
-        return messages;
+    public static void reload(FileConfiguration messages, File dataFolder) {
+        if (instance != null) {
+            MessageManager.messages = messages;
+            MessageManager.dataFolder = dataFolder;
+            load();
+            return;
+        }
+        new MessageManager(messages, dataFolder);
+        load();
     }
 
     public static File getDataFolder() {

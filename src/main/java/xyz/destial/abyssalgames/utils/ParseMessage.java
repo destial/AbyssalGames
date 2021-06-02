@@ -2,7 +2,6 @@ package xyz.destial.abyssalgames.utils;
 
 import java.util.ArrayList;
 
-import com.avaje.ebeaninternal.server.core.Message;
 import org.bukkit.entity.Player;
 import xyz.destial.abyssalgames.AbyssalGames;
 import xyz.destial.abyssalgames.manager.MessageManager;

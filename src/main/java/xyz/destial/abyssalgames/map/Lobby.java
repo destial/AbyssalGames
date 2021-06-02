@@ -1,14 +1,9 @@
 package xyz.destial.abyssalgames.map;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-
 import xyz.destial.abyssalgames.AbyssalGames;
 import xyz.destial.abyssalgames.manager.MatchManager;
 import xyz.destial.abyssalgames.manager.MessageManager;
@@ -46,12 +41,6 @@ public class Lobby {
         if (announcerID == -1) return;
         Bukkit.getScheduler().cancelTask(announcerID);
         announcerID = -1;
-    }
-
-    public List<ItemStack> getLobbyItems() {
-        List<ItemStack> list = new ArrayList<>();
-
-        return list;
     }
 
     public void announceVote() {

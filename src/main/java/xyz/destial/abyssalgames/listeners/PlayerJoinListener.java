@@ -66,7 +66,7 @@ public class PlayerJoinListener implements Listener {
         MatchPlayer matchPlayer = matchManager.removePlayer(e.getPlayer());
         if (matchPlayer != null) {
             matchPlayer.getBasePlayer().setOnline(false);
-            matchManager.call(new MatchPlayerDeathEvent(matchManager.getMatch(), null, matchPlayer, null));
+            matchManager.call(new MatchPlayerDeathEvent(matchManager.getMatch(), matchPlayer, null));
         }
 
         Spectator spectator = matchManager.removeSpectator(e.getPlayer());
