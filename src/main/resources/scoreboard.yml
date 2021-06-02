@@ -1,0 +1,15 @@
+title: "&6&lSurvival Games"
+
+lobby:
+  - ''
+  - '&a{map_number_1}) {voting_map_1}: &e{votes_map_1}'
+  - ''
+  - '&6Kills: {kills}'
+  - '&6Deaths: {deaths}'
+  - '&6Games: {games}'
+
+game:
+  - ''
+  - '&6Kills: {kills}'
+  - '&6Deaths: {deaths}'
+  - '&6Games: {games}'

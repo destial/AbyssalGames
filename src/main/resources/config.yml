@@ -1,0 +1,35 @@
+time:
+  game: 1200
+  deathmatch: 120
+  grace: 0
+  refill: 600
+
+mysql:
+  uuid: false
+  enabled: true
+  database: 'ab_games'
+  address: 'localhost'
+  port: '3306'
+  username: 'root'
+  password: 'password'
+  table-prefix: 'ab_'
+
+hub: hub
+
+blocks:
+  break:
+    - LEAVES
+  place:
+    - FIRE
+
+spectators:
+  kick-on-join: true
+  
+maps: "maps"
+lobby:
+  world: "world"
+  x: 0
+  y: 64
+  z: 0
+  yaw: 0
+  pitch: 0

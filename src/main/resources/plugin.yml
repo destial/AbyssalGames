@@ -1,0 +1,19 @@
+name: AbyssalGames
+version: ${project.version}
+main: xyz.destial.abyssalgames.AbyssalGames
+authors: [ destiall ]
+description: Abyssal Minigames Core
+commands:
+  ab:
+    description: main command
+    usage: /ab
+    permission: abyssal.admin
+  list:
+    description: Lists the players
+    usage: /list
+  vote:
+    description: Vote for your map
+    usage: /vote [number]
+  maps:
+    description: Gets the voting maps
+    usage: /maps

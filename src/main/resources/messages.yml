@@ -1,0 +1,77 @@
+# Every message can use the {currentCount}, {totalCount} and {neededPlayers} placeholders to represent the player count
+# For join and quit messages, you can use {player} to represent the player that joined/quit
+# For death messages, you can use the {victim} and {killer} placeholders to represent the victim and killer
+# For deaths that don't involve a killer, only {victim} will be parsed
+# {countdown} is used to represent a countdown (E.g. in 5 seconds). {time} will always be parsed as seconds in a countdown message
+# For messages that require maps, you can use {map} and {votes} to represent the map and its number of votes
+
+death:
+  with-killer: "&6A cannon could be heard in the distance!"
+  unknown: "&6A cannon could be heard in the distance!"
+  to-victim: "&cYou have been killed by {killer}"
+  to-killer: "&cYou have killed {victim}"
+
+game:
+  join: "&a{player} has joined the game! &e({currentCount}/{totalCount})"
+  quit: "&a{player} has left the game! &e({currentCount}/{totalCount})"
+  starting: "&aThe game is starting {countdown}"
+  begin: "&6The game has begun! Good luck!"
+  grace-period: "&6Grace period is ending {countdown}"
+  grace-period-end: "&6Grace period has ended!"
+  ending: "&aThe game is ending {countdown}"
+  end: "&6The game is now over!"
+  deathmatch-starting: "&cDeathmatch will begin {countdown}"
+  deathmatch-start: "&cDeathmatch has started!"
+  win: "&6{player} has won!"
+  kick-running: "&cThe game has already started!"
+  kick-ending: "&cThe game is ending!"
+
+maps:
+  list-title: "&aHere are the list of maps:"
+  list-format: "&8- &e{map}"
+  vote: "&aYou have voted for {map}"
+  vote-won: "&a{map} has won the vote with &6{votes}"
+  vote-already-ended: "&cVoting has already ended!"
+
+others:
+  countdown: "in {time} {unit}"
+  second: "second"
+  seconds: "seconds"
+  minute: "minute"
+  minutes: "minutes"
+  hour: "hour"
+  hours: "hours"
+  refill: "&6Chests are refilling {countdown}"
+  vote: "&eVote for your map using /vote"
+  teleport: "Teleporting in {countdown}"
+  chat-format: "&a({rank}) &2{player} &8> &f{message}"
+  spectator-chat-format: "&7[SPEC] &a({rank}) &7{player} &8> &7{message}"
+
+admin:
+  force-start: "&aTriggered force start"
+  set-lobby: "&aYou have set the lobby"
+  teleport-to-map-message: "&aTeleported to map {map}"
+  reload: "&aPlugin has been reloaded"
+  map-create: "&aCreated map with name {map}"
+  world-create: "&aCreated world and map with name {map}"
+  map-unload: "&aUnloaded map {map}"
+  world-unload: "&aUnloaded world {map}"
+  add-spawnpoint: "&aAdded spawnpoint {spawnpoint}"
+  remove-spawnpoint: "&aRemoved spawnpoint {spawnpoint}"
+  kick-reload: "&aThe plugin is being reloaded, retry in 10 seconds"
+
+error:
+  no-permission: "&cYou do not have enough permissions to do that!"
+  not-a-number: "&cNot a number!"
+  unknown-map: "&cUnknown map!"
+  unknown-world: "&cUnknown world!"
+  unknown-match: "&cUnknown match!"
+  map-loaded: "&cMap is already loaded!"
+  world-loaded: "&cWorld is already loaded!"
+  match-loaded: "&cMatch is already loaded!"
+  map-no-spawnpoints: "&cMap does not have any spawnpoints!"
+  map-too-many-spawnpoints: "&cMap already has 24 spawnpoints!"
+  unknown: "&cAn unknown error has occured!"
+  console-command: "Only players can use this command!"
+  command-usage: "&cCommand usage: "
+  cannot-do-that: "&cYou cannot do that!"
